@@ -1,0 +1,6 @@
+
+Flask==2.0.1
+flask-bootstrap==2.3.2.2
+pylint==2.11.1
+pytest==6.2.5
+gunicorn
