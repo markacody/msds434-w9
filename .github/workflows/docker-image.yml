@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Deployment with CI CD
 
 on:
   push:
@@ -20,3 +20,15 @@ jobs:
       # - name: Test with pytest
       #   run: |
       #     make test
+
+  DeployDev:
+    name: Deploy to Dev
+    if: github.event_name == 'pull_request'
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url:
+    steps:
+      - name: Deploy
+        run: echo I am deploying to dev
