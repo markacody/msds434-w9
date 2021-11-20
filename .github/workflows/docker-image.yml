@@ -32,3 +32,26 @@ jobs:
     steps:
       - name: Deploy
         run: echo I am deploying to dev
+
+  DeployStaging:
+    name: Deploy to Staging
+    if: github.event.ref == 'refs/heads/main'
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+      url:
+    steps:
+      - name: Deploy
+        run: echo I am deploying to staging
+
+  DeployProd:
+    name: Deploy to Production
+    needs: [DeployStaging]
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url:
+    steps:
+      - name: Deploy
+        run: echo I am deploying to prod
