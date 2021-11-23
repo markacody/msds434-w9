@@ -7,16 +7,23 @@ on:
     branches: [main]
 
 jobs:
+  lint:
+    name: Lint with pylint
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          make lint
+
+  test:
+    name: Test with pytest
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          make test
+
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Lint with pylint
-        run: |
-          make lint
-      - name: Test with pytest
-        run: |
-          make test
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag msds434-w9:$(date +%s)
