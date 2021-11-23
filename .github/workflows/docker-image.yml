@@ -11,8 +11,10 @@ jobs:
     name: Lint with pylint
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          make lint
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Super-Linter
+        uses: github/super-linter@v3
 
   test:
     name: Test with pytest
