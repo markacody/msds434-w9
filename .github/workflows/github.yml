@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag msds434-w9:$(date +%s)
+      - name: lint
+        run: make lint
+      - name: test
+        run: make test
 
   DeployDev:
     name: Deploy to Dev
