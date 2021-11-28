@@ -9,8 +9,22 @@
 </head>
 <body>
   <h1>Review Responder</h1>
-  <p>This is the main page</p>
-  <p> <a href="done"> Go to the done page</a></p>
-  <p>This is a test edit. This is a second. This is a third.</p>
+  <p>Worst rated reviews for {{ product_name }}.</p>
+  <p> <a href="unrated" class='.nav'> Go to unrated reviews</a></p>
+  <table class="table">
+    <tr>
+      {% for col in column_names %}
+      <th> {{col}} </th>
+      {% endfor %}
+    </tr>
+    {% for row in row_data %}
+    <tr>
+      {% for col, row_ in zip(column_names,row) %}
+      <td>{{row_}} </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+  <p>{{query}}</p>  
 </body>
 </html>
