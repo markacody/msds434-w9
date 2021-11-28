@@ -3,3 +3,32 @@ body {
   color: white;
   font-family: helvetica;
 }
+
+.table {
+  background-color: wheat;
+  color: black;
+  border: silver solid 3px;
+  border-collapse: collapse;
+  max-width: 1024px;
+}
+th,
+td {
+  border: silver solid 2px;
+  vertical-align: top;
+  padding: 0.25em;
+}
+img {
+  max-width: 600px;
+}
+/* .nav a:link {
+  color: white;
+}
+.nav a:hover {
+  color: wheat;
+}
+.nav a:active {
+  color: wheat;
+}
+.nav a:visited {
+  color: wheat;
+} */
